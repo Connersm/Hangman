@@ -9,17 +9,20 @@
 </head>
 <body>
     <div>
-        <img src="img/hangman6.gif" alt="Hangman">
+        <img id="pic" src="img/hangman6.gif" alt="Hangman">
         <div id="clue">Press New Game to Play!</div>
     </div>
 
     <div>
-        <input type="text" size="1" maxlength="1">
-        <button>Guess</button>
+        <input id="guess" type="text" size="1" maxlength="1">
+        <button onclick="guessLetter();">Guess</button>
+    </div>
+    <div id="guesses">
+
     </div>
 
     <div id="newgamearena">
-        <button>New Game</button>
+        <button onclick="newGame();">New Game</button>
     </div>
 </body>
 </html>
