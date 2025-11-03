@@ -2,6 +2,7 @@ var POSSIBLE_WORDS = ["obdurate", "verisimlitude", "defenestrate", "obsequious",
 
 var word = "";
 var num = 0;
+var gameOvr = true;
 
 function newGame() {
     var randomIdx = parseInt(Math.random() * (POSSIBLE_WORDS.length));
@@ -9,16 +10,20 @@ function newGame() {
     word = POSSIBLE_WORDS[randomIdx];
     guesses = "";
     num = 0;
+    gameOvr = false;
 
     updatePage();
 }
 function guessLetter(){
-    var input = document.getElementById("guess");
-    var letter = input.value;
 
-    guesses += letter;
+    if(!gameOvr){
+        var input = document.getElementById("guess");
+        var letter = input.value;
 
-    updatePage();
+        guesses += letter;
+
+        updatePage();
+    }
 }
 function updatePage(){
     var guessesArea = document.getElementById("guesses");
@@ -52,6 +57,7 @@ function updatePage(){
             case(7):
                 pic.src = "img/hangman0.gif";
                 guessesArea.innerHTML = "LOST";
+                gameOvr = true;
                 break;
         }
     }
@@ -71,6 +77,7 @@ function updatePage(){
     clue.innerHTML = clueString;
 
     if(counter == word.length){
+        gameOvr = true;
         guessesArea.innerHTML = "WON";
     }
 
