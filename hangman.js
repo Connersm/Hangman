@@ -15,10 +15,10 @@ function newGame() {
     updatePage();
 }
 function guessLetter(){
+    var input = document.getElementById("guess");
+    var letter = input.value;
 
-    if(!gameOvr){
-        var input = document.getElementById("guess");
-        var letter = input.value;
+    if(!gameOvr && guesses.indexOf(letter) == -1){
         input.value = "";
 
         guesses += letter;
