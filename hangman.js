@@ -2,7 +2,7 @@ var POSSIBLE_WORDS = ["obdurate", "verisimlitude", "defenestrate", "obsequious",
 
 var word = "";
 var num = 0;
-var gameOvr = true;
+var gameOvr = true; //Doesn't allow before word chosen
 
 function newGame() {
     var randomIdx = parseInt(Math.random() * (POSSIBLE_WORDS.length));
