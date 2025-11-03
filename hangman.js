@@ -19,6 +19,7 @@ function guessLetter(){
     if(!gameOvr){
         var input = document.getElementById("guess");
         var letter = input.value;
+        input.value = "";
 
         guesses += letter;
 
