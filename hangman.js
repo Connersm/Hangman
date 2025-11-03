@@ -21,6 +21,11 @@ function guessLetter(){
     updatePage();
 }
 function updatePage(){
+    var guessesArea = document.getElementById("guesses");
+    guessesArea.innerHTML = "Guessed Letters: " + guesses;
+
+    var counter = 0;
+
     var clueString = "";
     if(word.indexOf(guesses[guesses.length - 1]) == -1) {
         num ++;
@@ -46,6 +51,7 @@ function updatePage(){
                 break;
             case(7):
                 pic.src = "img/hangman0.gif";
+                guessesArea.innerHTML = "LOST";
                 break;
         }
     }
@@ -55,6 +61,7 @@ function updatePage(){
 
         if(guesses.indexOf(currentLetter) >= 0) {
             clueString += currentLetter + " ";
+            counter ++;
         } else {
             clueString += "_ ";
         }
@@ -63,6 +70,8 @@ function updatePage(){
     var clue = document.getElementById("clue");
     clue.innerHTML = clueString;
 
-    var guessesArea = document.getElementById("guesses");
-    guessesArea.innerHTML = "Guessed Letters: " + guesses;
+    if(counter == word.length){
+        guessesArea.innerHTML = "WON";
+    }
+
 }
